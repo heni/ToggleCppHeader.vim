@@ -7,7 +7,7 @@ function! ToggleCppHeader(filename)
         let ext4check += ["cpp"]
     endif
     for ext in ext4check
-        let checked_path = fnamemodify(a:filename, ':s?\..*$?.' . ext . '?')
+        let checked_path = fnamemodify(a:filename, ':s?\.[^\.]*$?.' . ext . '?')
         if filereadable(checked_path)
             exec ':e ' .  checked_path
             return
