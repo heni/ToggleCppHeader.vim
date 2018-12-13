@@ -3,8 +3,12 @@ function! ToggleCppHeader(filename)
     let ext4check = []
     if extension == "cpp"
         let ext4check += ["hpp", "h"]
-    elseif (extension == "hpp" || extension == "h")
+    elseif (extension == "hpp")
         let ext4check += ["cpp"]
+    elseif (extension == "h")
+        let ext4check += ["cpp", "c", "m", "mm"]
+    elseif (extension == "m" || extension == "mm")
+        let ext4check += ["h"]
     endif
     for ext in ext4check
         let checked_path = fnamemodify(a:filename, ':s?\.[^\.]*$?.' . ext . '?')
