@@ -3,6 +3,8 @@ function! ToggleCppHeader(filename)
     let ext4check = []
     if extension == "cpp"
         let ext4check += ["hpp", "h"]
+    elseif extension == "c"
+        let ext4check += ["h"]
     elseif (extension == "hpp")
         let ext4check += ["cpp"]
     elseif (extension == "h")
